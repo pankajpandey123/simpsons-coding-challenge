@@ -13,7 +13,7 @@
 	<artifactId>sccapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sccapi</name>
-	<description>Simpson's coding challenge(SCC)</description>
+	<description>Simpsons coding challenge(SCC)</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -54,12 +54,12 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-	<dependency>
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
 		</dependency>
-                <dependency>
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
@@ -83,6 +83,26 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

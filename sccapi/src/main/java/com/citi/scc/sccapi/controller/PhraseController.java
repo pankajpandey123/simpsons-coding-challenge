@@ -60,7 +60,7 @@ public class PhraseController {
 
 	@GetMapping("/quotes/{characterId}")
 	public List<String> getQuotesOfCharacter(@PathVariable String characterId) {
-		log.info("to find all quotes of char ", characterId);
+		log.info("to find all quotes of char " + characterId);
 		List<String> allquotesOfCharacter = phraseService.getAll().stream()
 				.filter(i -> i.getCharacter().equals(characterId)).map(PhrasePojo::getPhrase)
 				.collect(Collectors.toList());

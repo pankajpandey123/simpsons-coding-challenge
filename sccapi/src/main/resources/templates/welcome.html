@@ -1,0 +1,116 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Simpsons Coding challenge | Welcome</title>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<script>
+			 $(function () {
+			    $(document).ready(function () {			
+			 
+						    $("#charsubmit").click(function () {			
+				 	
+				
+				 	var charsval = $("#chars").val();
+				  
+				
+				 	
+				         $.ajax({
+				
+				             type: "GET",
+				             crossDomain: true,
+				             dataType: "json",
+				
+				            url: "http://localhost:8083/phrases/quotes/charsval",
+						     success: function (response) {
+                             var trHTML = '';
+       			             $.each(response, function (i, item) {
+        			            trHTML += '<tr><td>' + item._id + '</td><td>'+ item.phrase+ '</td>' + item.character + '</td><td>' ;
+       					      });
+       				         $('#phrasesTableOfChar').append(trHTML);
+   							 }
+				            ,				
+				             contentType: "application/json; charset=utf-8",
+				             headers: {  'Access-Control-Allow-Origin': 'http://localhost:8083' }
+				
+				         });
+				
+				     });
+ 		 	
+				         $.ajax({
+				
+				             type: "GET",
+				             crossDomain: true,
+				             dataType: "json",				
+				             url: "http://localhost:8083/characters/all",
+						     success: function (response) {
+                             var trHTML = '';
+       			             $.each(response, function (i, item) {
+        			            trHTML += '<tr><td>' + item._id + '</td><td>'+ item.age+ '</td><td>' + item.firstName + '</td><td>' + item.lastName + '</td><td>' + item.picture+'</td><td>' ;
+       					      });
+       				         $('#records_table').append(trHTML);
+   							 } ,				
+				             contentType: "application/json; charset=utf-8",
+				             headers: {  'Access-Control-Allow-Origin': 'http://localhost:8083' }
+			                      });
+				
+				     });
+				     
+			 });	
+			 		 $(function () {
+			    $(document).ready(function () {			
+				  
+				
+ 		 	
+				         $.ajax({
+				
+				             type: "GET",
+				             crossDomain: true,
+				             dataType: "json",				
+				             url: "http://localhost:8083/phrases/all",
+						     success: function (response) {
+                             var trHTML = '';
+       			             $.each(response, function (i, item) {
+        			            trHTML += '<tr><td>' + item._id + '</td><td>' + item.phrase + '</td><td>' + item.character + '</td><td>';
+       					      });
+       				         $('#phrase_table').append(trHTML);
+   							 } ,				
+				             contentType: "application/json; charset=utf-8",
+				             headers: {  'Access-Control-Allow-Origin': 'http://localhost:8083' }
+			                      });
+				
+				     });
+				     
+			 });
+	 	 	</script>
+	</head>	
+	
+	<body>
+	<h1>Simpson Coding Challenge</h1>
+	
+	<h4>Please use swagger UI for more detailed endpoint testing at http://localhost:8083/swagger-ui.html </h4>
+         <h5>There are all the crud operations available in this rest-api, on swagger-ui</h5>
+         
+           <h3>Find all the phrases of a Character, please enter the character id</h3>
+           <br><br>
+				
+		   Character	 : 	<input type ="text" id="chars">
+		<br>
+		<br>
+		 
+		<td><input type="submit" id="charsubmit"  name="Submit" value="Submit" /></td>
+		 <div id="phrasesTableOfChar"> </div>
+		
+		<h2>All the characters available in the system.</h2>
+		 
+		 <div id="records_table"> </div>
+         
+         <h3>All the Phrases available in the system.</h3>
+         
+		<div id="phrase_table"> </div>
+		
+         
+	</body>
+</html>

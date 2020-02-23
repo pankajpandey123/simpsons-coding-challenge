@@ -42,7 +42,7 @@ public class CharacterController {
 
 	@GetMapping("/all")
 	public List<CharacterPojo> getAllCharacters() {
-		log.info("chars getall!" + characterService.getAll().size());
+		log.info("chars getall");
 		return characterService.getAll();
 	}
 
