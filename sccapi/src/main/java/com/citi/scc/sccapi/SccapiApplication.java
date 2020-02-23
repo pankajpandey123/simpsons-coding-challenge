@@ -36,7 +36,7 @@ public class SccapiApplication {
 			try {
 				CharacterListPojo chars = mapper.readValue(inputStream, typeReference);
 				charService.saveAll(chars.getCharacters());
-				LOGGER.log(Level.INFO, "chars Saved!" + charService.getAll().size());
+				LOGGER.log(Level.INFO, "chars saved size!" + charService.getAll().size());
 
 			} catch (IOException e) {
 				LOGGER.log(Level.WARNING, "Unable to save : " + e.getMessage());
@@ -55,7 +55,7 @@ public class SccapiApplication {
 			try {
 				PhraseListPojo phrases = mapper.readValue(inputStream, typeReference);
 				phraseService.saveAll(phrases.getPhrases());
-				LOGGER.log(Level.INFO, "phrases Saved!" + phraseService.getAll().spliterator().estimateSize());
+				LOGGER.log(Level.INFO, "phrases saved size!" + phraseService.getAll().size());
 			} catch (IOException e) {
 				LOGGER.log(Level.WARNING, "Unable to save : " + e.getMessage());
 			}

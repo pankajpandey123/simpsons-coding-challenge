@@ -18,8 +18,8 @@ public class CharacterService {
 		this.chRepository = chRepository;
 	}
 
-	public void save(CharacterPojo character) {
-		chRepository.save(character);
+	public void save(CharacterPojo characterPojo) {
+		chRepository.save(characterPojo);
 	}
 
 	public void saveAll(List<CharacterPojo> chars) {
@@ -34,12 +34,20 @@ public class CharacterService {
 		return (List<CharacterPojo>) chRepository.findAll();
 	}
 
-	public void delete(String characterId) {
+	public void deleteCharacter(String characterId) {
 		chRepository.deleteById(characterId);
 	}
 
-	public void update(CharacterPojo characterPojo) {
-
+	public CharacterPojo update(CharacterPojo characterPojo) {
+		Optional<CharacterPojo> chPojoFromdb = chRepository.findById(characterPojo.getId());
+		CharacterPojo newpojo = null;
+		if (chPojoFromdb.isPresent()) {
+			newpojo = chPojoFromdb.get();
+			newpojo.setAge(characterPojo.getAge());
+			newpojo.setFirstName(characterPojo.getFirstName());
+			newpojo.setLastName(characterPojo.getLastName());
+			newpojo.setPicture(characterPojo.getPicture());
+		}
+		return chRepository.save(newpojo);
 	}
-
 }

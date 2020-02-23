@@ -14,12 +14,12 @@ public class PhraseService {
 	@Autowired
 	private PhraseRepository phraseRepository;
 
-	public void save(PhrasePojo phrase) {
-		phraseRepository.save(phrase);
+	public void save(PhrasePojo phrasePojo) {
+		phraseRepository.save(phrasePojo);
 	}
 
-	public void saveAll(List<PhrasePojo> phrases) {
-		phraseRepository.saveAll(phrases);
+	public void saveAll(List<PhrasePojo> phrasePojos) {
+		phraseRepository.saveAll(phrasePojos);
 	}
 
 	public Optional<PhrasePojo> get(String phraseId) {
@@ -27,17 +27,23 @@ public class PhraseService {
 
 	}
 
-	public Iterable<PhrasePojo> getAll() {
-		return phraseRepository.findAll();
+	public List<PhrasePojo> getAll() {
+		return (List<PhrasePojo>) phraseRepository.findAll();
 
 	}
 
-	public void delete(String phraseId) {
+	public void deletePhrase(String phraseId) {
 		phraseRepository.deleteById(phraseId);
 	}
 
-	public void update(PhrasePojo phrase) {
-
+	public PhrasePojo update(PhrasePojo phrasePojo) {
+		Optional<PhrasePojo> phrasePojoFromdb = phraseRepository.findById(phrasePojo.getId());
+		PhrasePojo newPhrasepojo = null;
+		if (phrasePojoFromdb.isPresent()) {
+			newPhrasepojo = phrasePojoFromdb.get();
+			newPhrasepojo.setCharacter(phrasePojo.getCharacter());
+			newPhrasepojo.setPhrase(phrasePojo.getPhrase());
+		}
+		return phraseRepository.save(newPhrasepojo);
 	}
-
 }
