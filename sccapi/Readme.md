@@ -1,13 +1,15 @@
 #  usage and sccapi features
+Use swagger-ui rest client at localhost:8083/swagger-ui.html
+Welcome Page at localhost:8083/welcome
 Exposed rest endpoints-
 
 1 WelcomeController- has one endpoint which serves a welcome page showing all the Characters and phrases already created in db.  
 
 /welcome  welcome page
 
-2 CharacterController- /character  supports CRUD operations
+2 CharacterController- /characters  supports CRUD operations (Example : localhost:8083/characters/create  provide the json object in body)
 
-/create  create a Character
+/create - create a Character
 
 /all  - get all characters
 
