@@ -35,13 +35,13 @@ Exposed rest endpoints-
 
 
 Technologies used-
-Java 8 latest
-Spring boot
-Tomcat embedded
-H2 db in memory
-html with JQuery
-Swagger UI docummentation and live testing
-Lombok
+Java 8 latest,
+Spring boot,
+Tomcat embedded,
+H2 db in memory,
+html with JQuery,
+Swagger UI docummentation and live testing,
+Lombok,
 thymeleaf
 
 
