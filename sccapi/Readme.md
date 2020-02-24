@@ -43,5 +43,5 @@ html with JQuery,
 Swagger UI docummentation and live testing,
 Lombok,
 thymeleaf
-
+Docker image is more than 80mb , git doesnt allow . can be sent via email. or just spring boot jar bootable is 50mb.
 
