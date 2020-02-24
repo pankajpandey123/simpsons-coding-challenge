@@ -1,6 +1,6 @@
 #  usage and sccapi features
 Use swagger-ui rest client at localhost:8083/swagger-ui.html
-wELCOME PAGE AT localhost:8083/welcome
+Welcome Page at localhost:8083/welcome
 Exposed rest endpoints-
 
 1 WelcomeController- has one endpoint which serves a welcome page showing all the Characters and phrases already created in db.  
